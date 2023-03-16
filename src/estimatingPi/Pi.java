@@ -22,13 +22,13 @@ public class Pi {
     }
 
     public double addOne() {
-        all++;
-        double x = myRandom.nextDouble();
-        double y = myRandom.nextDouble();
-        double r = Math.sqrt(x * x + y * y);
-        if (r <= 1.) {
-            in++;
-        }
+
+        
+        
+        
+        
+        
+    
         return (double) in / all;
     }
 
