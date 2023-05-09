@@ -83,15 +83,17 @@ public class EstimatingIntegral {
         Random myRandom = new Random(32943L);
         double xmin = 0.;
         double xmax = Math.PI / 2.;
-        double ymax = 1.;
-        double expected = Math.PI / 4.;//expected value of integral
+        double ymax = 2/Math.PI;
+        double expected = 1./3;//expected value of integral
         //integrand
-        DoubleFunction<Double> func = (x) -> Math.pow(Math.sin(x), 2.);
+        DoubleFunction<Double> func = 
+                (x) -> Math.pow(Math.sin(x), 2.) * Math.cos(x);
         EstimatingIntegral sys = new EstimatingIntegral(func,
                 ymax, xmin, xmax, myRandom);
         int k = 0;
         int t = 0;
-        String filename = EstimatingIntegral.class.getSimpleName() + "-output.txt";
+        String filename = EstimatingIntegral.class.getSimpleName() 
+                + "-output.txt";
         try ( PrintStream out = new PrintStream(filename)) {
             while (k < n) {
                 while (true) {
@@ -108,7 +110,8 @@ public class EstimatingIntegral {
             }
         }
         int nSample = 100;
-        Map<String, List<Point2D.Double>> map = sys.generateRandomSamples(nSample);
+        Map<String, List<Point2D.Double>> map = 
+                sys.generateRandomSamples(nSample);
         for (String s : map.keySet()) {
             filename = EstimatingIntegral.class.getSimpleName()
                     + "-" + s + "-output.txt";
