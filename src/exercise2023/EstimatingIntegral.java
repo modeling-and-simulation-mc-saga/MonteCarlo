@@ -41,11 +41,11 @@ public class EstimatingIntegral {
      */
     public double addOne() {
         allCount++;
-        double x = myRandom.nextDouble() * (xmax - xmin) + xmin;
-        double y = myRandom.nextDouble() * ymax;
-        if (y < func.apply(x)) {
-            count++;
-        }
+
+
+
+        
+        
         return ((double) count / allCount) * ymax * (xmax - xmin);
     }
 
